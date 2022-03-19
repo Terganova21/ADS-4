@@ -1,5 +1,5 @@
 // Copyright 2021 NNTU-CS
-int countPairs1(int* arr, int len, int value) {
+int countPairs1(int *arr, int len, int value) {
   int chet = 0;
     for (int k = 0; k < len - 1; k++)
         for (int i = k + 1; i < len; i++)
@@ -8,7 +8,7 @@ int countPairs1(int* arr, int len, int value) {
             }
     return chet;
 }
-void Sort1(int* arr, int l, int h) {
+void Sort1(int *arr, int l, int h) {
     int i = l;
     int j = h;
     int cen = arr[(i + j) / 2];
@@ -32,7 +32,7 @@ void Sort1(int* arr, int l, int h) {
     if (i < h)
         Sort1(arr, i, h);
 }
-int bin(int* arr, int left, int right, int value) {
+int bin(int *arr, int left, int right, int value) {
   if (right >= left) {
     int cen = left + (right - left) / 2;
     if (arr[cen] == value)
@@ -43,7 +43,7 @@ int bin(int* arr, int left, int right, int value) {
   }
   return 0;
 }
-int countPairs2(int* arr, int len, int value) {
+int countPairs2(int *arr, int len, int value) {
   Sort1(arr, 0, len - 1);
     int chet = 0;
     for (int i = 0; i < len; i++) {
@@ -55,7 +55,7 @@ int countPairs2(int* arr, int len, int value) {
     }
     return chet;
 }
-int countPairs3(int* arr, int len, int value) {
+int countPairs3(int *arr, int len, int value) {
   Sort1(arr, 0, len - 1);
     int chet = 0;
     for (int i = 0; i < len; i++) {
