@@ -8,26 +8,6 @@ int countPairs1(int *arr, int len, int value) {
             }
     return chet;
 }
-int countPairs2(int *arr, int len, int value) {
-  Sort1(arr, 0, len - 1);
-    int chet = 0;
-    for (int i = 0; i < len; i++) {
-        for (int j = len - 1; j > i; j--) {
-            if (arr[i] + arr[j] == value) {
-                chet++;
-            }
-        }
-    }
-    return chet;
-}
-int countPairs3(int *arr, int len, int value) {
-  Sort1(arr, 0, len - 1);
-    int chet = 0;
-    for (int i = 0; i < len; i++) {
-        chet += bin(&arr[i + 1], 0, len - i, value - arr[i]);
-    }
-    return chet;
-}
 void Sort1(int* arr, int l, int h) {
     int i = l;
     int j = h;
@@ -63,4 +43,24 @@ int bin(int* arr, int left, int right, int value) {
         return bin(arr, cen + 1, right, value);
     }
     return 0;
+}
+int countPairs2(int *arr, int len, int value) {
+  Sort1(arr, 0, len - 1);
+    int chet = 0;
+    for (int i = 0; i < len; i++) {
+        for (int j = len - 1; j > i; j--) {
+            if (arr[i] + arr[j] == value) {
+                chet++;
+            }
+        }
+    }
+    return chet;
+}
+int countPairs3(int *arr, int len, int value) {
+  Sort1(arr, 0, len - 1);
+    int chet = 0;
+    for (int i = 0; i < len; i++) {
+        chet += bin(&arr[i + 1], 0, len - i, value - arr[i]);
+    }
+    return chet;
 }
